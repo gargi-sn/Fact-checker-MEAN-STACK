@@ -1,0 +1,113 @@
+<div class="container-fluid ">
+    <div class="row">
+        <section class="col-12 landing">
+            <div class="content">
+                <div class="heading">
+                    <h2>Let's<span class='text-danger' id='primary-word'>Stop</span> the spread Of rumours!</h2>
+                </div>
+                <div class="text">
+                    <h4><small>Join our community to bust fake news circulating through the internet save others from getting into this trap. Let us make the world scam free.</small></h4>
+                </div>
+                <div class="buttons mt-4">
+                    <button class="btn login-btn px-5 py-1">Login</button>
+                    <button class="btn sign-up-btn px-5 py-1 mx-2">Register</button>
+                </div>
+            </div>
+
+            <div class="img">
+                <img [src]="svgSrc" alt="">
+            </div>
+
+           <!-- <div class="scroll-down">
+                <div class="ball"></div>
+            </div> -->
+        </section>
+
+        <section class="col-12 section-1">
+            <!--<div class="img"><img src="../..\assets\ui/yelling-formal-man-watching-news-on-laptop-3760778.jpg" alt=""></div>-->
+            <div class="head">
+                <h1 class='mb-5'>Why is it <span>important?</span> </h1>
+            </div>
+           
+            <div class="content">
+                <div class="social-media-images">
+                    <img src="../../assets/ui/socialmedia.svg" alt="">
+                 </div>
+                <p>People misuse the power of Social Media to spread fake news to create havoc or panic among the people. Today many of us vulnerable to these fake news or scams. People tend to accept any of the information without doing a proper background check about that information. Often this leads severe damage to oneself or to society.</p>
+            </div>
+        </section>
+
+        <section class="col-12 section-2">
+            <!--<div class="img"><img src="../..\assets\ui/yelling-formal-man-watching-news-on-laptop-3760778.jpg" alt=""></div>-->
+            <div class="head-reverse">
+                <h1 class='mb-5'>What can <span>we</span> do? </h1>
+            </div>
+           
+            <div class="content text-center">
+                <p>We need a proper medium which helps us deciding whether the information people find on internet is right or wrong. We have to build a large community that helps put their knowledge together to bust down a scam or fake information. You just have to join by registering your account.</p>
+                <div class='btn btn-dark px-5 py-1 mt-3'>Register</div>
+            </div>
+        </section>
+
+        <section class="col-12 section-3" id='howto'>
+            <div class="pnbuttons">
+                <div class="next" (click)='slideNext(inner)'>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="previous" (click)='slidePrev(inner)'>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="outer">
+                <div class="inner" #inner>
+                   <div class="page">
+                     <div class="content">
+                         <h3 class="title">Got some news that you doubt?</h3>
+                         <p>We get a lot of information from social media and from many other platforms as well, we should not believe them blindly. If you get some news that seems doubtfull take a screen shot of it or copy it.
+                         </p>
+                     </div>
+                     <div class="img">
+                        <img src="../../assets/ui/Blogging-bro.png" alt="">                        
+                     </div>
+                    </div>
+
+                    <div class="page">
+                        <div class="content">
+                            <h3 class="title">Post it on this website</h3>
+                            <p>Post the information that you collected to this website either in text or media format. You can add some other informations as well.
+                            </p>
+                        </div>
+                        <div class="img">
+                           <img src="../../assets/ui/Setup-bro.png" alt="">                        
+                        </div>
+                       </div>
+
+                       <div class="page">
+                        <div class="content">
+                            <h3 class="title">Let the people decide...</h3>
+                            <p>After you post something, other users will vote for right or wrong on the post or can give their feedback;
+                            </p>
+                        </div>
+                        <div class="img">
+                           <img src="../../assets/ui/Segmentation-amico.png" alt="">                        
+                        </div>
+                       </div>
+                       <div class="page">
+                        <div class="content">
+                            <h3 class="title">Check the result..</h3>
+                            <p>The voting is real time so you can check for it anytime, but we suggest you to wait for more amount of votes before coming to any conclusion.
+                            </p>
+                        </div>
+                        <div class="img">
+                           <img src="../../assets/ui/charts-animate.svg" alt="">                        
+                        </div>
+                       </div>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+</div>
+ 

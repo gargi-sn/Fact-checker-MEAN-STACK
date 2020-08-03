@@ -1,0 +1,38 @@
+@import '../../styles.scss';
+
+.row{
+    background:black;
+}
+
+.col-12{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+     ul{
+        list-style-type: none;
+        display:flex;
+        flex-direction: column;
+        padding:10px 0px;
+        margin:10px 10px;
+    }
+     li{
+        color:white;
+        letter-spacing: 2px;
+        font-size:1.1em;
+        padding:5px 10px;
+    }
+
+    .credits ul li, .info ul li{
+        cursor:pointer;
+    }
+
+}
+
+@media screen and (max-width:700px){
+    .col-12{
+        justify-content:flex-start
+    }
+}
+
+

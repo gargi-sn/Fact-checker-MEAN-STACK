@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+@mixin flex-assign($direction:row, $j:space-around, $a:center){
+    display:flex;
+    flex-direction: $direction;
+    justify-content: $j;
+    align-items: $a;
+
+}
+
+
+$nav_distance:10vh;
+//$btn-color:#007bff;
+$btn-color:#6f4a8e;
+$top-nav-index: 99;
+
+//colors
+$dark: #343a40;
+$danger: #dc3545;
+
+
+
+*{
+    box-sizing: border-box;
+    font-size:16px;
+    scroll-behavior: smooth;
+}
+
+h1,h2,h3,h4,h5,h6,p,span{
+    font-family: sans-serif;
+}
+
+.container-fluid{
+    padding:0px;
+    margin:0px;
+    scroll-behavior: smooth;
+}
+.row{
+    margin:0px;
+    padding:0px;
+}
+
+.gradient-1 {
+    background: #DC3645;
+    background: -webkit-linear-gradient(bottom right, #DC3645, #704A8E);
+    background: -moz-linear-gradient(bottom right, #DC3645, #704A8E);
+    background: linear-gradient(to top left, #DC3645, #704A8E);
+}
+
+.gradient-2{
+    background: #221F3B;
+    background: -webkit-radial-gradient(top left, #221F3B, #704A8E);
+    background: -moz-radial-gradient(top left, #221F3B, #704A8E);
+    background: radial-gradient(to bottom right, #221F3B, #704A8E);
+}
+
+.gradient-main{
+    background-image: linear-gradient(to right bottom, #6f4a8e, #594079, #443564, #322a50, #221f3b);
+}

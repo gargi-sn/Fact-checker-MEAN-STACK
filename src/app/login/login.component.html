@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="login-form">
+
+                <div class="user-image">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <img src="../../assets/ui/Login-bro.png" alt="">
+                </div>
+                <div class="head">
+                    <h2>Login</h2>
+                </div>
+                <div class="form-container">
+                    <form action="" #loginForm='ngForm' (submit)='login(loginForm)'>
+                       
+                        <div class="form-group">
+                            <label for="email" class='form-label' aria-label="email"></label>
+
+                            <div class="input-box">
+                             <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <input type="text" class='form-control' pattern ="[a-zA-Z0-9.]+@[a-zA-Z]+\.[a-zA-Z]+" required email #email="ngModel" placeholder="enter email" name="email" [(ngModel)]="valueEmail"  aria-label="email" ngModel>
+                            </div>
+                            <span *ngIf="email.invalid && email.touched" class='error'> please enter valid email</span>
+
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="password" class='form-label'  aria-label="password"></label>
+                            
+                            <div class="input-box">
+                                <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                                <input type="password" class='form-control' required  #password="ngModel" placeholder="enter Password"  name="password" [(ngModel)]='valuePassword'  aria-label="password" ngModel>
+                            </div>
+                           
+                                                       
+                            <span *ngIf="password.invalid && password.touched" class='error'> Please enter password </span>
+                        </div>
+                    
+                        <button type='submit' [disabled]='loginForm.invalid' class='btn text-white mt-3 py-md-2 px-lg-5 px-4'><i class='fa fa-sign-in px-1' aria-hidden='true'></i> Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
