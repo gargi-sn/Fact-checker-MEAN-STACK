@@ -1,0 +1,109 @@
+@import '../../styles.scss';
+
+
+.container-fluid{
+    //background-image: linear-gradient(to right bottom, #6f4a8e, #594079, #443564, #322a50, #221f3b);
+    background:#ebebeb;
+}
+
+
+.posts{
+    @include flex-assign(column);
+    width:50%;
+    min-height:80vh;
+    margin:0px auto;
+    padding-top:5vh;
+    padding-left:2vw;
+    padding-right:2vw;
+    font-size:18px;
+    //background:rgba(255,255,255,0.9);
+}
+
+.post{
+    width:100%;
+    min-height:100px;
+    padding:20px 10px;
+    background:whitesmoke
+    //border:1px solid black;
+}
+
+.post-meta-container{
+    @include flex-assign();
+    justify-content: start;
+    padding:5px;
+    .meta-pic{
+        width:50px;
+        height:50px;
+    }
+    .meta-name{
+        font-size:1.2rem;
+        padding-left:1.5rem
+    }
+}
+
+.post-details-container{
+    padding:5px;
+    text-align: justify;
+    letter-spacing: 1px;
+}
+
+.post-reactions-container{
+    @include flex-assign();
+    
+    .react-1, .react-2{
+        flex-grow: 1;
+        text-align: center;
+        font-size:1rem;
+        letter-spacing:1px;
+        font-weight: bolder;
+        padding:5px;
+        cursor: pointer;
+        color:white;
+        border:1px solid whitesmoke;
+        margin:10px auto;
+        position:relative;
+    }
+
+    .react-1::after, .react-2::after{
+        content: "";
+        position:absolute;
+        top:105%;
+        width:0%;
+        height:3px;
+        left:0px;
+        transition: 0.3s ease-in-out;
+    }
+    .react-1::after{
+        background:$btn-color;
+    }
+    .react-2::after{
+        background:$danger;
+    }
+    .react-1:hover::after, .react-2:hover::after{
+        width:100%;
+    }
+      
+    .react-1{
+        background:$btn-color;
+    }
+    .react-2{
+        background:$danger; 
+    }
+}
+
+.comment-box{
+    padding-top:10px;
+    form{
+        @include flex-assign();
+    }
+    .form-group{
+        flex-grow: 2;
+    }
+    input{
+        width:100%;
+        border-radius:20px;
+        padding:2px 15px;
+        letter-spacing:1px;
+    }
+}
+

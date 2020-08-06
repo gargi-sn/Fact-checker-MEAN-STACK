@@ -1,18 +1,29 @@
 <nav>
     <div class='topnav' appTopnav>
             <h1 class='logo'>Fakchecc</h1>
-            <div class="menu-bt" [class.menu-bt-onClick]="toggle" (click)="menuToggle(nav)">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="menu-container">
+                <div class="profile" *ngIf="logged">
+                    <div class='probtn'>
+                        <div class="proimg">
+                            <img src="../../assets/ui/yelling-formal-man-watching-news-on-laptop-3760778.jpg" alt="">
+                        </div>
+                        <div class="dropdown">.</div>
+                    </div>
+                </div>
+                <div class="menu-bt" [class.menu-bt-onClick]="toggle" (click)="menuToggle(nav)">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class='nav' #nav>
+                    <li class='nav-item'><a routerLink='' class='nav-link'>home</a></li>
+                    <li class='nav-item'><a href="#" class='nav-link'>news</a></li>
+                    <li class='nav-item'><a href="#howto" class='nav-link'>how to</a></li>
+                    <li class='nav-item' routerLink='/login'><a class='nav-link' *ngIf='!logged'>login</a></li>
+                    <li class='nav-item'><a routerLink='/sign-up' class='nav-link' *ngIf='!logged'>sign-up</a></li>
+                    <li class='nav-item'><a routerLink='/profile' class='nav-link'>Profile</a></li>
+                </ul>
             </div>
-            <ul class='nav' #nav>
-                <li class='nav-item'><a href="#" class='nav-link'>home</a></li>
-                <li class='nav-item'><a href="#" class='nav-link'>news</a></li>
-                <li class='nav-item'><a href="#howto" class='nav-link'>how to</a></li>
-                <li class='nav-item' routerLink='/login'><a class='nav-link'>login</a></li>
-                <li class='nav-item'><a href="#" class='nav-link'>sign-up</a></li>
-                <li class='nav-item'><a href="#" class='nav-link'>Profile</a></li>
-            </ul>
+           
     </div>
 </nav>

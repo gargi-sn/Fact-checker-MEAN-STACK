@@ -1,0 +1,317 @@
+<section class="container-fluid">
+        <div class="row stupid">
+            <div class="col-12 profile-show"><!--pro pic selector and name-->
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-lg-2 offset-md-4"><!-- size = 1 col for img-->               
+                                 <div class='show-propic'><!--image-->
+                                 <img src="../../assets/ui/yelling-formal-man-watching-news-on-laptop-3760778.jpg" style='width:100%;' alt="">
+                                </div>
+                                <div><h5 class='text-center'> <!-- name through php --></h5></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-lg-4 shown-details"> 
+                       
+                       <h5><small>Full Name : </small></h5>
+                     <!--<h5><small>age : <?php //echo date('y', time()-strtotime($row['date_of_birth'])); ?></small></h5>
+                     -->
+                      <h5><small>State : </small></h5>
+
+                       <h5><small>Total Activities : </small></h5>
+
+                       <h5><small>Date Joined : </small></h5>
+
+                   </div>
+                     <!--<div class="col-xs-12 col-sm-5"> 
+                       
+                        
+                       <h5><small>profile views : <?php //echo $row['profile_view']; ?></small></h5>
+                        <h5><small>content views : </small></h5>-->
+                        
+                        <!--<h5><small>ranking : <?php echo "0"; ?></small></h5>
+
+                    </div>-->
+                   
+                </div>
+            </div>
+           
+            <div class="col-12 col-lg-10 offset-xl-1 menu-container mt-4">
+                
+                    <!-- Nav pills -->
+                    <ul class="nav nav-tabs over" role="tablist">
+                    
+                           <li class="nav-item left-border">
+                             <a class="nav-link active" data-toggle="tab" href="#home">Edit Profile</a>
+                           </li>
+
+
+
+                           <li class="nav-item left-border" >
+                             <a class="nav-link" data-toggle="tab" href="#menu1">Reviews </a>
+                             
+                           </li>
+                           <li class="nav-item left-border">
+                             <a class="nav-link" data-toggle="tab" href="#menu2">Questions </a>
+                           </li>
+                           <li class="nav-item left-border">
+                             <a class="nav-link" data-toggle="tab" href="#menu3">Answers</a>
+                           </li>
+                          <!-- <li class="nav-item">
+                             <a class="nav-link" data-toggle="tab" href="#menu3">Miscs</a>
+                           </li>-->
+                    </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+
+    <div id="home" class="container tab-pane active"><br>
+     <div class="row form-container">
+         <div class="col-md-6">
+            <form action="" #profileForm='ngForm'>
+                <div class="form-group">
+                    <label for="firstName" class="form-label">first name : </label>
+                    <span *ngIf="firstName.invalid && firstName.touched" class='error'>
+                        please enter valid first name...
+                    </span>
+                    <div class="input-box">
+                        <input type="text" name="firstName" id='firstNameInput' pattern="[a-zA-Z]* *" class='form-control' aria-label="first name" #firstName="ngModel" [(ngModel)]='valueFirstName' required ngModel>
+                    </div> 
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName" class="form-label">last name : </label>
+                    <span *ngIf="lastName.invalid && lastName.touched" class='error'>
+                        please enter valid last name...
+                    </span>
+                    <div class="input-box">
+                        <input type="text" name="lastName" id='lastNameInput' class='form-control' aria-label="last name" #lastName="ngModel" [(ngModel)]='valueLastName' pattern="[a-zA-Z]* *" required ngModel>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class='form-label' aria-label="email">email : </label>
+                     <span *ngIf="email.invalid && email.touched" class='error'>
+                        please enter valid email...
+                    </span>
+                    <div class="input-box">
+                        <input type="text" class='form-control' name="email" #email="ngModel" aria-label="email" [(ngModel)]="valueEmail"  pattern ="[a-zA-Z0-9.]+@[a-zA-Z]+\.[a-zA-Z]+" required email ngModel>
+                    </div>
+                   
+                </div>
+               
+                <div class="form-group">
+                    <label for="address" class='form-label'>enter Address : </label>
+                    <div class="input-box">
+                        <input type="text" class='form-control'  #address="ngModel" placeholder=""  name="address" aria-label="Address" [(ngModel)]='valueAddress' pattern="" required  ngModel>
+                    </div>                       
+                    <span *ngIf="false && address.invalid && address.touched" class='error'>
+                         Please enter valid address...
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="state" class='form-label'>state : </label> <span *ngIf="false" class='error'>
+                        Please select your state..
+                    </span>
+                    <div class="input-box">
+                        <select class='form-control' name="state"  #state="ngModel" [(ngModel)]='valueState' required ngModel>
+                            <option value="state" *ngFor='let state of states'>{{ state }}</option>
+                        </select>
+                    </div>                       
+                   
+                </div>
+         </form>
+         </div>
+         <div class="col-12 col-md-5 col-lg-3 mt-5 mt-md-0 offset-lg-2 text-center"> <!--centering the image -->
+             <div class="edit-propic mx-auto"> <!-- centering images -->
+                 <div class="img" >
+                 <img src="" id='image_of_profile_pic' alt="">
+                 </div>
+                 <div class="overlay">
+                     <input type="file" name="dp" id="input">
+                    <button type='button' onclick='takeinput();'>+</button>
+                 </div>
+             </div>
+
+              <button class='btn submit-changes-btn my-3' (click)='submit_changes()'>Submit Changes</button> 
+            
+         </div>
+     </div>
+        
+    </div>
+  
+                     
+  
+    <div id="menu1" class="container tab-pane"><br>
+   
+
+    <a href='postread.php?post_id=' title='go to page'>
+    <div class='profile-activities'>
+
+    <h5> <small></small></h5>
+    
+    <p></p>
+      
+    
+    <div>
+      <ul class='list-inline'>
+        <li class='list-inline-item'><i class='fa fa-arrow-up'></i>&nbsp;</li>
+        <li class='list-inline-item'><i class='fa fa-arrow-down'></i>&nbsp;</li>
+        <li class='list-inline-item'><i class='fa fa-flag' aria-hidden="true"></i>&nbsp;</li>
+      </ul>
+    </div>
+   
+    </div>
+    </a>
+    
+ 
+    <h4 class='text-center'>sorry no reviews till now</h4>
+    
+   </div> 
+   
+
+
+    <div id="menu2" class="container tab-pane fade"><br>
+     <a href='' title='go to page'>
+    <div class='profile-activities'>
+    <h5>posted on </h5>
+    
+      <h3><small></small></h3>
+   
+    <div>
+      <ul class='list-inline'>
+        <li class='list-inline-item'><i class='fa fa-arrow-up'></i>&nbsp;</li>
+        <li class='list-inline-item'><i class='fa fa-arrow-down'></i>&nbsp;</li>
+        <li class='list-inline-item'><i class='fa fa-flag' aria-hidden="true"></i>&nbsp;</li>
+      </ul>
+    </div>
+    </div></a>
+    <br>
+    
+
+    <h4 class='text-center'>sorry no questions till now</h4>
+    
+  
+    </div>
+
+
+
+
+    <div id="menu3" class="container tab-pane fade"><br>
+
+     <a href='postread.php?post_id=' style='text-decoration:none;color:black'  title='go to page'>
+    <div class='profile-activities'>
+    <h5> <small>posted on </small></h5>
+    <p></p>
+   
+    <div>
+      <ul class='list-inline'>
+        <li class='list-inline-item'><i class='fa fa-arrow-up'></i>&nbsp;</li>
+        <li class='list-inline-item'><i class='fa fa-arrow-down'></i>&nbsp;</li>
+        <li class='list-inline-item'><i class='fa fa-flag' aria-hidden="true"></i>&nbsp;</li>
+      </ul>
+    </div>
+    </div></a>
+    <br>
+    
+
+    <h4 class='text-center'>sorry no Answers till now</h4>
+ 
+    </div>
+
+    
+
+  </div>
+              
+            </div>
+
+        </div>
+    </section>
+    <script>
+   var profilepic = '';
+    function takeinput()
+    {
+        document.getElementById('input').click();
+        
+    } 
+    
+  var input_button = document.getElementById('input');
+   
+    
+    
+
+   input_button.onchange =  function(){
+  
+       try{ 
+
+            var formdata = new FormData();
+            formdata.append("profile_picture", input_button.files[0]);
+            var con = new XMLHttpRequest();
+                con.onreadystatechange = function(){
+                  if(con.readyState==4)
+                  {   
+                      var response  = JSON.parse(con.responseText);
+                      
+                      if(response['status'] == "200")
+                      {
+                          var newimg = document.getElementById('image_of_profile_pic');
+                          newimg.setAttribute('src', response['data']);
+                          
+                       
+                       location.reload();
+                          
+                      }
+                      else
+                       {
+                         alert($response['data']);
+                       }
+                  }
+
+                }
+               con.open('POST', 'restapis/regis.php?action=profilepicupload', true);
+               con.send(formdata);
+             
+
+        }
+        catch(e)
+        {
+             alert(e);
+        }
+
+    }
+
+    function submitChanges()
+    {
+           var formdata = new FormData();
+           var form = document.getElementById('submit-changes-form');
+           formdata.append("firstname", form.firstname.value);
+           formdata.append("lastname", form.lastname.value);
+           formdata.append("address", form.address.value)
+           formdata.append("state",form.state.value);
+
+           var con = new XMLHttpRequest();
+           con.onreadystatechange = function(){
+             if(con.readyState == 4)
+             {
+                 var response = JSON.parse(con.responseText);
+                 if(response['status']== 200)
+                 {
+                    alert(response['data']);
+                   location.reload();
+                 }
+                 else
+                 {
+                   alert(response['data']);
+                 }
+             }
+           }
+           con.open("POST", "restapis/regis.php?action=changes", 1)
+           con.send(formdata);
+    }
+
+
+    $('.left-border').click(function(){
+
+      $(this).css('border-left','3px solid green');
+      $(this).siblings().css('border-left', '0px');
+
+    });
+    </script>
