@@ -19,6 +19,9 @@ export class LoginComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.title.setTitle('login');
+    this.ss.user_data_observable().subscribe((value:any)=>{
+      console.log(value);
+    })
   }
 
   ngOnDestroy():void{
@@ -26,15 +29,16 @@ export class LoginComponent implements OnInit, OnDestroy{
   }
 
   login(loginForm){
-    this.ds.login_request(loginForm).subscribe({
-      next(v){
-        console.log("done");
-      },error(v){
-        console.log("error");
-      },complete(){
-        console.log("complete");
+    this.ds.login_request(loginForm.form.value).subscribe((result:any)=>{
+      if(result.status == 202){
+        this.ss.set_new_user_data(result.data);
+        this.ss.login();
       }
-    })
+    },(x)=>{
+        console.log(x);
+    },()=>{
+        console.log('complete');
+    });
   }
 
 }

@@ -13,7 +13,7 @@ export class TopnavComponent implements OnInit {
   toggle:Boolean = false;
   topnavUnsubscriber;
   loginUnsubscriber;
- 
+  changedColor;
   
   constructor(private ren: Renderer2, private el: ElementRef, private ss: StateServiceService) { }
 
@@ -24,8 +24,8 @@ export class TopnavComponent implements OnInit {
   ngAfterViewInit(): void{
 
     this.topnavUnsubscriber = this.ss.topnavObservable().subscribe((v)=>{
-        if(window.innerWidth <= 700){
-          if(v.hide == true){
+        if(window.innerWidth <= 700){ //checks window size as topnav hidin during page change is only available when the screen size is less than 700px;
+          if(v.hide == true){ 
             this.toggle = false;
             this.ren.removeClass(this.nav.nativeElement, 'show');
           }
@@ -34,10 +34,16 @@ export class TopnavComponent implements OnInit {
             this.ren.addClass(this.nav.nativeElement,'show');
           }
         }
+        if(v.hasOwnProperty('bgColor')){
+          //checks if the color change is called that will change the color of the top nav by validating it to the this.changedColor value.
+          this.changedColor = true;
+        }else{
+          this.changedColor = false
+        }
       });
 
     this.loginUnsubscriber = this.ss.logged_observer.subscribe((v)=>{
-      console.log(v);
+      //checks for login to provide customized ui in top nav;
       this.logged = v.logged;
     })
   }

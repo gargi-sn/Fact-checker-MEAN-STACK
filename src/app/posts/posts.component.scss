@@ -2,42 +2,71 @@
 
 
 .container-fluid{
-    //background-image: linear-gradient(to right bottom, #6f4a8e, #594079, #443564, #322a50, #221f3b);
-    background:#ebebeb;
+    background-image: linear-gradient(to right bottom, #6f4a8e, #594079, #443564, #322a50, #221f3b);
+    //background:whitesmoke;
 }
 
 
 .posts{
-    @include flex-assign(column);
+    @include flex-assign(column,flex-start, center);
     width:50%;
-    min-height:80vh;
+    min-height:98vh;
     margin:0px auto;
-    padding-top:5vh;
+    padding-top:8vh;
     padding-left:2vw;
     padding-right:2vw;
     font-size:18px;
-    //background:rgba(255,255,255,0.9);
+   // background:rgba(255,255,255,0.9);
 }
 
 .post{
     width:100%;
     min-height:100px;
     padding:20px 10px;
-    background:whitesmoke
+    padding-top:5px;
+    margin-bottom:5px;
+    background:rgba(255,255,255,0.85);
+    border-radius: 20px;
+   // box-shadow:2px 3px 5px rgba(0,0,0,0.2);
+
     //border:1px solid black;
 }
 
 .post-meta-container{
     @include flex-assign();
-    justify-content: start;
-    padding:5px;
+    justify-content: space-between;
+    //background:$danger;
+   // color:white;
+    letter-spacing: 1px;
+    font-weight: bold;
+    border-radius:10px;
+    //background-image: linear-gradient(to right bottom, #6f4a8e, #594079, #443564, #322a50, #221f3b);
+    .meta-details{
+        @include flex-assign();
+    }
     .meta-pic{
-        width:50px;
-        height:50px;
+        width:40px;
+        height:40px;
     }
     .meta-name{
         font-size:1.2rem;
         padding-left:1.5rem
+    }
+    .misc-menu{
+        margin-right:10px;
+        cursor:pointer;
+    }
+    .misc-menu:hover span{
+        background:black;
+    }
+    .misc-menu span{
+        content:"";
+        display:inline-block;
+        height:9px;
+        width:9px;
+        border-radius: 50%;
+        background:rgba(0,0,0,0.6);
+        margin:0px 2px;
     }
 }
 
@@ -45,11 +74,16 @@
     padding:5px;
     text-align: justify;
     letter-spacing: 1px;
+
+    .expand-post{
+        color:blue;
+        cursor: pointer;
+    }
+    
 }
 
 .post-reactions-container{
     @include flex-assign();
-    
     .react-1, .react-2{
         flex-grow: 1;
         text-align: center;
@@ -67,9 +101,9 @@
     .react-1::after, .react-2::after{
         content: "";
         position:absolute;
-        top:105%;
+        top:106%;
         width:0%;
-        height:3px;
+        height:5px;
         left:0px;
         transition: 0.3s ease-in-out;
     }
@@ -92,18 +126,100 @@
 }
 
 .comment-box{
-    padding-top:10px;
+    //padding:10px;
+    @include flex-assign();
+    height:50px;
     form{
         @include flex-assign();
+        //border-radius:20px;
+        overflow:hidden;
+        flex-grow: 1;
+        //background:white;
     }
     .form-group{
         flex-grow: 2;
+       
     }
     input{
         width:100%;
         border-radius:20px;
         padding:2px 15px;
         letter-spacing:1px;
+       // border:0px;
+    }
+    input:focus{
+        box-shadow: none;
+    }
+    .comment-btn{
+        padding:0px;
+        text-align: center;
+        width:40px;
+        height:40px;
+        margin-left:3px;
+        font-size:1em;
+        letter-spacing: -1px;
+        border-radius: 50%;
+        font-weight:bold;
+        background:$dark;
+        color:white;
+        transform-origin: center;
+        transition:width height 0.2s ease-in-out;
+    }
+    .comment-btn:hover{
+        width:43px;
+        height:43px;
+        cursor:pointer;
     }
 }
 
+
+@media screen and (max-width:1300px){
+    .posts{
+        width:60%;
+    }
+}
+
+@media screen and (max-width:1100px){
+    .posts{
+        width:70%;
+    }
+}
+
+@media screen and (max-width:700px){
+    .posts{
+        width:100%;
+        padding:50px 5px;
+    }
+    .post{
+        border-radius: 0px;
+    }
+    .comment-box{
+        height:unset;
+        min-height:10px;
+        padding:0px;
+        .comment-btn{
+            transform: scale(0.8);
+        }
+        form{
+            justify-content: center;
+            align-items: center;
+            padding:0px;
+        }
+        .form-group{
+            margin:0px;
+        }
+    }
+}
+
+@media screen and (max-width:450px){
+  
+    .posts-container{
+        padding:0px !important;
+    }
+
+    .post-details-container{
+        p{
+            font-size:0.9em;
+        }
+    }
+}

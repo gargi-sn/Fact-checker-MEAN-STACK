@@ -22,22 +22,20 @@ export class SignupComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.title.setTitle('sign-up'); 
-    this.ss.logged_observer.subscribe((v)=>{
-      console.log(v);
-    });
   }
 
   ngOnDestroy(): void{
-    this.ss.topnav_hide;
+    this.ss.topnav_hide();
   }
 
   sign_up(signUpForm){
-    this.ds.sign_up_request(signUpForm).subscribe((x)=>{
-      console.log('done');
-      
+    console.log(signUpForm.form.value);
+    this.ds.sign_up_request(signUpForm.form.value).subscribe((result:any)=>{
+      if(result.status == 201){
+        this.ss.login();
+      }
     },(x)=>{
-      console.log('error');
-      this.ss.login();
+      console.log(x);
     },()=>{
       console.log('complete');
     });

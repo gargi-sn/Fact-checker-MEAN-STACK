@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StateServiceService } from '../state-service.service';
 
 @Component({
   selector: 'app-posts',
@@ -7,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostsComponent implements OnInit {
   comment;
-  constructor() { }
+  constructor(private ss:StateServiceService) { }
 
   ngOnInit(): void {
+    //this.ss.topnav_color();
   }
-  submit(){
+  go_to_post(){
+
+  }
+  comment_submit(){
 
   }
 }

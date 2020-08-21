@@ -11,6 +11,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   svgSrc = "";
   left = 0;
   logged:Boolean = false;
+  loggedUnsubscribe;
   
   constructor(private title:Title,
      private ren: Renderer2,
@@ -21,7 +22,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.title.setTitle('Home');
-    this.ss.logged_observer.subscribe((x)=>{
+   this.loggedUnsubscribe=  this.ss.logged_observer.subscribe((x)=>{
       this.logged = x.logged;
     },(x)=>{
       console.log('error');
@@ -34,6 +35,7 @@ export class HomepageComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy():void{
     this.ss.topnav_hide();
+    this.loggedUnsubscribe.unsubscribe();
   }
 
 

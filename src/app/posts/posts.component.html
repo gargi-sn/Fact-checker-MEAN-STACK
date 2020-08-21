@@ -1,21 +1,26 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 posts-container">
-            <div class="posts">
-                <div class="post">
+            <section class="posts">
+                <article class="post" *ngFor='let a of [{a:1}, {a:2}]'>
                     <div class="post-meta-container">
-                        <div class="meta-pic">
-                            <img src="" alt="">
-                        </div>
-                        <div class="meta-name">
-                            Deepak
+                        <div class='meta-details'>
+                            <div class="meta-pic">
+                                <img src="" alt="">
+                            </div>
+                            <div class="meta-name">
+                                Deepak
+                            </div>
                         </div>
                         <div class="misc-menu">
-                            
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </div>
                     </div>
                     <div class="post-details-container ">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nam dolorum ex ab assumenda autem maxime esse numquam provident perspiciatis. Eos, corrupti nostrum nulla quisquam nesciunt ipsam atque. Molestias, odit?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nam dolorum ex ab assumenda autem maxime esse numquam provident perspiciatis. Eos, corrupti nostrum nulla quisquam nesciunt ipsam atque. Molestias, odit? <span class='expand-post' (click)="go_to_post()">more</span></p>
+                        
                     </div>
                     <div class="post-reactions-container">
                         <div class="react-1">Legit</div>
@@ -24,14 +29,21 @@
                     <div class="comment-box">
                         <form action="" #commentForm='ngForm' class="form-inline">
                             <div class="form-group">
-                                <input type="text" name="comment" class='form-control' id="" #commentInput='ngModel' 
-                                [(ngModel)]='comment' required ngModel>
+                                <input type="text" 
+                                name="comment" 
+                                class='form-control' 
+                                id="" 
+                                placeholder='comment...' 
+                                #commentInput='ngModel' 
+                                [(ngModel)]='comment'
+                                required 
+                                ngModel>
                             </div>
-                            <button class='btn comment-btn' (click)='submit()' [disabled]='commentInput.valid'>submit</button>
+                            <button class='btn comment-btn' (click)='comment_submit()' [disabled]='commentInput.invalid'><i class='fa fa-arrow-right' aria-hidden="true"></i></button>
                         </form>
                     </div>
-                </div>
-            </div>
+                </article>
+            </section>
         </div>
     </div>
 </div>

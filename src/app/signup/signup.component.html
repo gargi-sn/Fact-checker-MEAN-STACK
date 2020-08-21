@@ -13,10 +13,10 @@
                 <div class="form-container">
                     <form action="" #signForm='ngForm' (submit)='sign_up(signForm)'>
                         <div class="form-group">
-                            <label for="firstName" class="form-label"></label>
+                            <label for="firstName" class="form-label">first name</label>
                             <div class="input-box">
                                 <i class="fa fa-address-book" aria-hidden="true"></i>
-                                <input type="text" name="firstName" id='firstNameInput' placeholder="First Name" pattern="[a-zA-Z]* *" class='form-control' aria-label="first name" #firstName="ngModel" [(ngModel)]='valueFirstName' required ngModel>
+                                <input type="text" name="firstname" id='firstNameInput' placeholder="First Name" pattern="[a-zA-Z]* *" class='form-control' aria-label="first name" #firstName="ngModel" [(ngModel)]='valueFirstName' required ngModel>
                             </div>
                             <span *ngIf="firstName.invalid && firstName.touched" class='error'>
                                 please enter valid first name...
@@ -24,10 +24,10 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="lastName" class="form-label"></label>
+                            <label for="lastName" class="form-label">last name</label>
                             <div class="input-box">
                                 <i class="fa fa-address-book" aria-hidden="true"></i>
-                                <input type="text" name="lastName" id='lastNameInput' placeholder="Last Name"  class='form-control' aria-label="last name" #lastName="ngModel" [(ngModel)]='valueLastName' pattern="[a-zA-Z]* *" required ngModel>
+                                <input type="text" name="lastname" id='lastNameInput' placeholder="Last Name"  class='form-control' aria-label="last name" #lastName="ngModel" [(ngModel)]='valueLastName' pattern="[a-zA-Z]* *" required ngModel>
                             </div>
                             <span *ngIf="lastName.invalid && lastName.touched" class='error'>
                                 please enter valid last name...
@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="email" class='form-label' aria-label="email"></label>
+                            <label for="email" class='form-label' aria-label="email">email</label>
                             <div class="input-box">
                                 <i class="fa fa-envelope" aria-hidden="true"></i>
                                 <input type="text" class='form-control' placeholder="enter email" name="email" #email="ngModel" aria-label="email" [(ngModel)]="valueEmail"  pattern ="[a-zA-Z0-9.]+@[a-zA-Z]+\.[a-zA-Z]+" required email ngModel>
@@ -46,7 +46,7 @@
                         </div>
                        
                         <div class="form-group">
-                            <label for="password" class='form-label'  aria-label="password"></label>
+                            <label for="password" class='form-label'  aria-label="password">password</label>
                             <div class="input-box">
                                 <i class="fa fa-key" aria-hidden="true"></i>
                                 <input type="password" class='form-control'  #password="ngModel" placeholder="enter Password"  name="password" aria-label="password" [(ngModel)]='valuePassword' pattern="[a-zA-Z0-9@\*#!]{8,15}" required  ngModel>
@@ -56,7 +56,7 @@
                             </span>
                         </div>
 
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <label for="confirmPassword" class='form-label'  aria-label="password"></label>
                             <div class="input-box">
                                 <i class="fa fa-key" aria-hidden="true"></i>
@@ -65,9 +65,9 @@
                             <span *ngIf="confirmPassword.value != password.value" class='error'>
                                 the password doesn't match...
                             </span>
-                        </div>
+                        </div>-->
                     
-                        <button type='submit' [disabled]='signForm.invalid || confirmPassword.value != password.value' class='btn text-white mt-3 py-md-2 px-lg-5 px-4'>
+                        <button type='submit' [disabled]='signForm.invalid' class='btn text-white mt-3 py-md-2 px-lg-5 px-4'>
                             <i class='fa fa-sign-in px-1' aria-hidden='true'></i>
                             Sign-up
                        </button>

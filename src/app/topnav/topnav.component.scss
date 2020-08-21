@@ -6,7 +6,11 @@ $ptb:5px;
 *{
     outline:none;
 }
-
+.topnavBg{
+    background-image: linear-gradient(to right bottom, #6f4a8e, #594079, #443564, #322a50, #221f3b);
+    //background:black;
+    //background:$btn-color;
+}
 .topnav{
     @include flex-assign();
     padding:5px 0px;

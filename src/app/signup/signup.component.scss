@@ -6,7 +6,7 @@
     display:block;
     text-align: start;
     letter-spacing: 1px;
-    font-size:1.1em;
+    font-size:1em;
     align-self: flex-start;
     padding-left:5vw;
 }
@@ -80,6 +80,8 @@ input.ng-valid{
         padding:5px;
     }
     .form-label{
+        letter-spacing: 1px;
+        font-size:1em;
         display:none;
     }
     .input-box{

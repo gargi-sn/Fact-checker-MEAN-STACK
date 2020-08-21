@@ -3,6 +3,14 @@ import { Subject, BehaviorSubject } from 'rxjs';
 
 interface topnav{
   hide:Boolean;
+  bgColor?:string;
+}
+
+interface userData{
+  firstname:string;
+  lastname:string;
+  email:string;
+  profile_pic:string;
 }
 
 @Injectable({
@@ -21,7 +29,10 @@ export class StateServiceService {
   topnav_show(){
     this.topnavObserver.next({hide:false});
   }
-
+  topnav_color(){
+    this.topnavObserver.next({hide:false, bgColor:"topBg"});
+  }
+  
 /* end: topnav component interaction */
 
 /* start: login */
@@ -37,6 +48,15 @@ export class StateServiceService {
   }
 /* end: login */
   
-
+/*start: userData */
+ userDataObserver$ = new BehaviorSubject<userData>({firstname:"", lastname:"", email:"", profile_pic:""});
+ user_data_observable(){
+   return this.userDataObserver$.asObservable();
+ }
+ set_new_user_data(data:userData){
+   this.userDataObserver$.next(data);
+ }
+ /*stop: userData */
+ 
   constructor() { }
 }

@@ -7,6 +7,12 @@
 
 }
 
+@mixin remove-input-focus(){
+    outline:0px;
+    border:0px;
+    box-shadow: none;
+}
+
 
 $nav_distance:10vh;
 //$btn-color:#007bff;
@@ -17,7 +23,7 @@ $top-nav-index: 99;
 //colors
 $dark: #343a40;
 $danger: #dc3545;
-
+$yellow: #FFCA41;
 
 
 *{
